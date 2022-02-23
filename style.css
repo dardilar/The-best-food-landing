@@ -16,7 +16,7 @@ main {
 
 .hero {
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: minmax(300px, 2fr) 3fr;
     grid-auto-rows: 550px;
     border-bottom: 4px solid #f1f1f1;
 }
@@ -55,6 +55,11 @@ main {
     background-color: #FF882E;
     border-radius: 50px;
     box-shadow: 2px 2px 5px 0px rgb(204, 204, 204);
+}
+
+.hero-info .hero-info-button:hover { 
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .dishes {
@@ -102,7 +107,7 @@ main {
 
 .menu {
     display: grid;
-    grid-template-columns: repeat(5, minmax(100px, 250px));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
     gap: 25px;
     justify-content: center;
 }
@@ -113,4 +118,25 @@ main {
     object-fit: contain;
     background-color: #FEEDEB;
     border-top-left-radius: 40px; 
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        grid-template-columns: minmax(300px, 500px);
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-image {
+        display: none;
+
+    }
+
+    .dishes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(75px, 150px));
+    }
+
+    .hero-info .hero-info-description {
+        padding: 10px 30px;
+    }
 }
